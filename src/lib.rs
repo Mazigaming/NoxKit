@@ -1,14 +1,20 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
+pub mod view;
+pub mod layout;
+pub mod render;
+pub mod widgets;
+pub mod state;
+pub mod app;
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+pub use noxkit_macros::view;
+pub use view::View;
+pub use widgets::{Column, Text, Button};
+pub use state::{create_signal, Signal};
+pub use app::App;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+pub mod prelude {
+    pub use crate::view::View;
+    pub use crate::widgets::{Column, Text, Button};
+    pub use crate::state::{create_signal, Signal};
+    pub use crate::app::App;
+    pub use noxkit_macros::view;
 }
