@@ -9,7 +9,9 @@ fn main() {
             Text(state.get().to_string()),
             Button("Increment", move || {
                 state.update(|n| *n += 1);
-            })
+            }),
+            RoundedRect([0.0, 0.5, 1.0, 1.0], 20.0),
+            Circle([1.0, 0.8, 0.0, 1.0])
         }
     };
 

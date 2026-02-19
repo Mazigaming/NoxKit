@@ -1,7 +1,6 @@
 use proc_macro::TokenStream;
 use quote::quote;
 use syn::{parse_macro_input, Expr, Ident, Token, parse::{Parse, ParseStream}, braced};
-use syn::punctuated::Punctuated;
 
 enum ViewElement {
     Widget {

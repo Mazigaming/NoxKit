@@ -62,21 +62,43 @@ fn main() {
 }
 ```
 
-## Current Version: 0.0.1
+## Running Examples
 
-### Features in 0.0.1
-- **Base Components**: Initial implementation of `Column`, `Text`, and `Button`.
-- **DSL Support**: Working `view!` macro for nested components.
-- **Wgpu Integration**: Foundation for hardware rendering.
-- **Desktop Windowing**: Native window management via `winit`.
+NoxKit includes several examples to demonstrate its capabilities. To run them, use:
 
-## Looking Ahead: v0.0.2
+```bash
+# Basic counter with Material Design buttons
+cargo run --example counter
 
-The next version will focus on building a robust interactive engine, including:
-- **Shaders & Batching**: Advanced 2D primitives and draw-call optimization.
-- **Text Shaping**: High-performance glyph rendering and atlas management.
-- **Event Bus**: Hit-testing, gesture detection, and event bubbling.
-- **Lifecycle Hooks**: `on_mount` and `on_update` for reactive components.
+# Interactive event testing
+cargo run --example interactive
+
+# Rendering primitives (Rects, Circles, etc.)
+cargo run --example rects
+```
+
+> **Note**: Initial compilation may take 2-3 minutes as it builds the `wgpu` and `glyphon` dependency stack. Subsequent builds are significantly faster.
+
+## Current Version: 0.0.2
+
+### Features in 0.0.2
+- **Material-Inspired UI**: Built-in widgets follow Material Design guidelines with smooth corner radii and primary indigo color palettes.
+- **Unified Rendering Pipeline**: Hardware-accelerated 2D primitives (Rects, Rounded Rects, Circles) using a single optimized SDF shader.
+- **Batching & Performance**: Batched draw calls via `RenderQueue` for minimal GPU overhead.
+- **Text Rendering**: High-performance text shaping and atlas management integrated via `glyphon`.
+- **Event System**: Interactive components with hit-testing, hover states, and click handling.
+- **Component Lifecycle**: Support for `on_init`, `on_mount`, `on_update`, and `on_unmount` hooks.
+- **Derived State**: Computed signals (`create_memo`) for efficient reactive updates.
+- **Debug Tools**: Built-in wireframe mode for layout debugging.
+
+## Looking Ahead: v0.1.0
+
+The next major milestone focuses on mobile readiness and advanced UI capabilities:
+- **Android Integration**: JNI bridge and Kotlin launcher for native Android execution.
+- **iOS Integration**: Metal rendering and Objective-C/Swift bridge.
+- **Gesture Recognition**: Support for multi-touch, swipes, and long-press gestures.
+- **Animation Framework**: High-performance, reactive animation primitives.
+- **Theming System**: Declarative themes and styling variables.
 
 ## Architecture Overview
 
